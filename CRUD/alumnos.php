@@ -31,7 +31,7 @@ $query = mysqli_query($con, $sql);
 <body>
 
 <?php
-$conn = new mysqli("localhost", "root", "", "Aw_CRUD");
+$conn = new mysqli("localhost", "root", "", "aw_crud");
 $resultado = $conn->query("SELECT * FROM alumnos");
 ?>
 
@@ -46,11 +46,13 @@ $resultado = $conn->query("SELECT * FROM alumnos");
                     <th>Nombre</th>
                     <th>Apellido Paterno</th>
                     <th>Apellido Materno</th>
+                    <th>edad</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
+                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -60,15 +62,18 @@ $resultado = $conn->query("SELECT * FROM alumnos");
                         <a href="?eliminar=">Eliminar</a>
                     </td>
                 </tr>
-                <?php while($fila = $resultado->fetch_assoc()){ ?>
+                <?php while($row = $resultado->fetch_assoc()){ ?>
                 <tr>
-                    <td><?php echo $fila['matricula']; ?></td>
-                    <td><?php echo $fila['nombre']; ?></td>
-                    <td><?php echo $fila['apellido_paterno']; ?></td>
-                    <td><?php echo $fila['apellido_materno']; ?></td>
+                    <td><?php echo $row['matricala']; ?></td>
+                    <td><?php echo $row['nombre']; ?></td>
+                    <td><?php echo $row['apellido_p']; ?></td>
+                    <td><?php echo $row['apellido_m']; ?></td>
+                    <td><?php echo $row['edad']; ?></td>
+                    
+
                     <td>
-                        <a href="?editar=<?php echo $fila['matricula']; ?>">Editar</a>
-                        <a href="?eliminar=<?php echo $fila['matricula']; ?>">Eliminar</a>
+                        <a href="editar.php?id=<?php echo $row['matricala']; ?>">Editar</a>
+                        <a href="eliminar.php?id=<?php echo $row['matricala']; ?>">Eliminar</a>
                     </td>
                 </tr>
                 <?php } ?>
@@ -80,10 +85,11 @@ $resultado = $conn->query("SELECT * FROM alumnos");
     <div>
         <h3>Formulario</h3>
         <form action="insertar.php" method="post" style="display: flex; gap: 10px;">
-            <input type="text" name="matricula" placeholder="Matricula" required>
+            <input type="text" name="matricala" placeholder="Matricula" required>
             <input type="text" name="nombre" placeholder="Nombre" required>
-            <input type="text" name="apellido_paterno" placeholder="Apellido Paterno" required>
-            <input type="text" name="apellido_materno" placeholder="Apellido Materno" required>
+            <input type="text" name="apellido_p" placeholder="Apellido Paterno" required>
+            <input type="text" name="apellido_m" placeholder="Apellido Materno" required>
+            <input type="text" name="edad" placeholder="edad" required>
             
             <input type="submit" name="guardar" value="Guardar">
         </form>

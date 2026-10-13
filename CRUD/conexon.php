@@ -6,7 +6,7 @@ function conectar(){
     $user = "root";
     $pass = "";
 
-    $bd = "AW_CRUD";
+    $bd = "aw_crud";
 
     $con=mysqli_connect($host, $user, $pass, $bd);
 
