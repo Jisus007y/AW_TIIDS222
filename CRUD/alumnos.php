@@ -5,11 +5,15 @@ include("conexon.php");
 /* mandamos a llamar para ejecutar la funcon */
 $con = conectar();
 
+
 /*dame todo lo que tengas en la tabla de alumnos */
 $sql = "SELECT * FROM alumnos";
 
 /* ejecutamos la consulta */
 $query = mysqli_query($con, $sql);
+
+
+
 
 ?>
 
