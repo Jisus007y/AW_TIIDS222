@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Eliminar Auto</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <div class="container mt-4">
+    <div class="card">
+      <div class="card-header">
+        Eliminar Auto
+      </div>
+      <div class="card-body text-center">
+        <p>¿Estás seguro de eliminar este auto?</p>
+        <p><strong>Marca:</strong> {{ auto.marca }}</p>
+        <p><strong>Modelo:</strong> {{ auto.modelo }}</p>
+        <p><strong>Color:</strong> {{ auto.color }}</p>
+        <p><strong>Año:</strong> {{ auto.anio }}</p>
+        <form action="/borrar/{{ auto.id }}" method="POST">
+          <button type="submit" class="btn btn-danger">Eliminar</button>
+          <a href="/" class="btn btn-secondary">Regresar</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
